@@ -109,10 +109,10 @@ class ClassifierProvider extends ChangeNotifier {
 
       // Charger le modèle TFLite
       final options = InterpreterOptions();
-      _interpreter = await Interpreter.fromAsset('assets/model/plant_diagnosis.tflite', options: options);
+      _interpreter = await Interpreter.fromAsset('assets/tflite/plant_diagnosis.tflite', options: options);
 
       // Charger les labels
-      final labelData = await rootBundle.loadString('assets/model/labels.txt');
+      final labelData = await rootBundle.loadString('assets/tflite/labels.txt');
       _labels = labelData.split('\n').where((label) => label.isNotEmpty).toList();
 
       _error = '';
